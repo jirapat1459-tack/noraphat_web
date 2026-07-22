@@ -2,74 +2,243 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <title>แนะนำตัวเอง</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>แนะนำตัวเอง - กิจวัตรประจำวัน</title>
+  
+  <style>
+    /* ตั้งค่าฟอนต์และพื้นหลังหลัก */
+    body {
+      background-color: #e8f5e9; /* สีเขียวมิ้นต์พาสเทล สบายตา */
+      font-family: 'Sarabun', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #2e7d32;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* ปุ่มนำทางด้านบน */
+    .nav-buttons {
+      margin-bottom: 25px;
+      display: flex;
+      gap: 15px;
+    }
+
+    .btn {
+      background-color: #66bb6a;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #388e3c;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    /* กล่องเนื้อหาหลัก */
+    .card {
+      background-color: white;
+      width: 100%;
+      max-width: 850px;
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid #c8e6c9;
+    }
+
+    /* หัวข้อหลัก */
+    .main-title {
+      color: #1b5e20;
+      font-size: 28px;
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 4px dotted #a5d6a7;
+    }
+
+    /* จัดสไตล์ตาราง */
+    .table-container {
+      overflow-x: auto; /* รองรับการเลื่อนซ้าย-ขวาบนจอโทรศัพท์ */
+      margin-top: 15px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    th {
+      background-color: #4caf50;
+      color: white;
+      font-size: 17px;
+      padding: 15px;
+      text-align: center;
+    }
+
+    td {
+      padding: 14px;
+      border-bottom: 1px solid #e8f5e9;
+      vertical-align: top;
+      color: #333;
+    }
+
+    /* สลับสีแถวตารางให้อ่านง่าย */
+    tr:nth-child(even) {
+      background-color: #f1f8e9;
+    }
+
+    tr:hover {
+      background-color: #e8f5e9;
+    }
+
+    /* ตกแต่งคอลัมน์วัน */
+    .day-cell {
+      font-weight: bold;
+      text-align: center;
+      white-space: nowrap;
+      color: #2e7d32;
+      font-size: 16px;
+      width: 100px;
+    }
+
+    /* จัดบรรทัดในเซลล์กิจกรรมและเวลา */
+    .routine-item {
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .routine-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .time-badge {
+      display: inline-block;
+      background-color: #c8e6c9;
+      color: #1b5e20;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-right: 5px;
+    }
+  </style>
 </head>
 
-<body style="background-color: Azure; text-align: left;">
-
-  <h1 style="font-family: verdana;">หน้าที่ 3 กิจวัตร</h1>
-<p style="color:rad;"></p>
-    <button onclick="document.location='index.html'">go to หน้าหลัก</button>
-<p style="color:rad;"></p>
-    <button onclick="document.location='page.html'">go to หน้า2</button>
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-</style>
-</head>
 <body>
 
-<h2>ตารางกิจวัตรประจำวัน1สัปดาห์</h2>
+  <!-- ปุ่มนำทาง -->
+  <div class="nav-buttons">
+    <button class="btn" onclick="document.location='index.html'">🏠 หน้าหลัก</button>
+    <button class="btn" onclick="document.location='page.html'">📄 หน้า 2</button>
+  </div>
 
-<table style="width:100%">
-  <tr>
-    <th>วัน</th>
-    <th>เวลา</th> 
-    <th>กิจกรรม</th>
-  </tr>
-  <tr>
-    <td>จันทร์</td>
-    <td>5:30ถึง6:00    6:00ถึง7:10    7:40ถึง 16:00  16:00ถึง 21:30</td>
-    <td>ตื่นมาล้างหน้าแปลงฟันอาบน้ำเตรียมไปโรงเรียน   กินข้าวขับรถไปวิลัย    ถึงวิลัยเรียนถึง4โมง ทำอะไรเรื่อยเปลื่อยกินข้าวอาบน้ำเล่นเกมนอน</td>
-  </tr>
-  <tr>
-    <td>อังคาร</td>
-    <td>5:30ถึง6:00    6:00ถึง7:10    7:40ถึง 16:00  17:00ถึง 21:30</td>
-    <td>ตื่นมาล้างหน้าแปลงฟันอาบน้ำเตรียมไปโรงเรียน   กินข้าวขับรถไปวิลัย    ถึงวิลัยเรียนถึง4โมง ทำอะไรเรื่อยเปลื่อยกินข้าวอาบน้ำนอน</td>
-  </tr>
-  <tr>
-    <td>พุธ</td>
-    <td>5:30ถึง6:00    6:00ถึง7:10    7:40ถึง 16:00  17:00ถึง 21:30</td>
-    <td>ตื่นมาล้างหน้าแปลงฟันอาบน้ำเตรียมไปโรงเรียน   กินข้าวขับรถไปวิลัย    ถึงวิลัยเรียนถึง4โมง ทำอะไรเรื่อยเปลื่อยกินข้าวอาบน้ำนอน</td>
-  </tr>
-     </tr>
-  <tr>
-    <td>พฤหัส</td>
-    <td>5:30ถึง6:00    6:00ถึง7:10    7:40ถึง 16:00  17:30ถึง 21:30</td>
-    <td>ตื่นมาล้างหน้าแปลงฟันอาบน้ำเตรียมไปโรงเรียน   กินข้าวขับรถไปวิลัย    ถึงวิลัยเรียนถึง4โมง ทำอะไรเรื่อยเปลื่อยกินข้าวอาบน้ำนอน</td>
-  </tr>
-  <tr>
-    <td>ศุกร์</td>
-    <td>5:30ถึง6:00    6:00ถึง7:10    7:40ถึง 16:00  17:30ถึง 00:30</td>
-    <td>ตื่นมาล้างหน้าแปลงฟันอาบน้ำเตรียมไปโรงเรียน   กินข้าวขับรถไปวิลัย    ถึงวิลัยเรียนถึง4โมง ทำอะไรเรื่อยเปลื่อยเล่นเกมกินข้าวอาบน้ำเล่นเกมนอน</td>
-  </tr>
-  <tr>
-    <td>เสาร์</td>
-    <td>10:30ถึง12:00    12:00ถึง16:00    16:00ถึง 17:00  17:30ถึง 6:00</td>
-    <td>ตื่นสายมาอาบน้ำกินข้าว เล่นเกม นอนต่อ เล่นเกม กินข้าว เล่นเกม กินข้าว นอน</td>
-  </tr>
-    <tr>
-    <td>อาทิตย์</td>
-    <td>10:30ถึง12:00    12:00ถึง16:00    16:00ถึง 17:00  17:30ถึง 22:00</td>
-    <td>ตื่นสายมาอาบน้ำกินข้าว เล่นเกม นอนต่อ เล่นเกม กินข้าว เล่นเกม กินข้าว นอนเช้าหน่อยเพราะวันจันทร์ไปเรียน</td>
+  <!-- กล่องเนื้อหาหลัก -->
+  <div class="card">
+    <h1 class="main-title">หน้าที่ 3: กิจวัตรประจำวัน 📅✨</h1>
 
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>วัน 🗓️</th>
+            <th>ช่วงเวลา ⏰ / กิจกรรม 🎮🏫</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- จันทร์ -->
+          <tr>
+            <td class="day-cell">จันทร์ 🟡</td>
+            <td>
+              <div class="routine-item"><span class="time-badge">05:30 - 06:00</span> 🧼 ตื่นมาล้างหน้า แปรงฟัน อาบน้ำ เตรียมไปวิทยาลัย</div>
+              <div class="routine-item"><span class="time-badge">06:00 - 07:10</span> 🍳 กินข้าว ขี่รถไปวิทยาลัย</div>
+              <div class="routine-item"><span class="time-badge">07:40 - 16:00</span> 📚 ถึงวิทยาลัย เรียนหนังสือถึง 4 โมงเย็น</div>
+              <div class="routine-item"><span class="time-badge">16:00 - 21:30</span> 🎮 ทำอะไรเรื่อยเปื่อย กินข้าว อาบน้ำ เล่นเกม นอน</div>
+            </td>
+          </tr>
 
-</table>
+          <!-- อังคาร -->
+          <tr>
+            <td class="day-cell">อังคาร 🌸</td>
+            <td>
+              <div class="routine-item"><span class="time-badge">05:30 - 06:00</span> 🧼 ตื่นมาล้างหน้า แปรงฟัน อาบน้ำ เตรียมไปวิทยาลัย</div>
+              <div class="routine-item"><span class="time-badge">06:00 - 07:10</span> 🍳 กินข้าว ขี่รถไปวิทยาลัย</div>
+              <div class="routine-item"><span class="time-badge">07:40 - 16:00</span> 📚 ถึงวิทยาลัย เรียนหนังสือถึง 4 โมงเย็น</div>
+              <div class="routine-item"><span class="time-badge">17:00 - 21:30</span> 😴 ทำอะไรเรื่อยเปื่อย กินข้าว อาบน้ำ เข้านอน</div>
+            </td>
+          </tr>
+
+          <!-- พุธ -->
+          <tr>
+            <td class="day-cell">พุธ 🟢</td>
+            <td>
+              <div class="routine-item"><span class="time-badge">05:30 - 06:00</span> 🧼 ตื่นมาล้างหน้า แปรงฟัน อาบน้ำ เตรียมไปวิทยาลัย</div>
+              <div class="routine-item"><span class="time-badge">06:00 - 07:10</span> 🍳 กินข้าว ขี่รถไปวิทยาลัย</div>
+              <div class="routine-item"><span class="time-badge">07:40 - 16:00</span> 📚 ถึงวิทยาลัย เรียนหนังสือถึง 4 โมงเย็น</div>
+              <div class="routine-item"><span class="time-badge">17:00 - 21:30</span> 🛌 ทำอะไรเรื่อยเปื่อย กินข้าว อาบน้ำ เข้านอน</div>
+            </td>
+          </tr>
+
+          <!-- พฤหัสบดี -->
+          <tr>
+            <td class="day-cell">พฤหัสบดี 🟠</td>
+            <td>
+              <div class="routine-item"><span class="time-badge">05:30 - 06:00</span> 🧼 ตื่นมาล้างหน้า แปรงฟัน อาบน้ำ เตรียมไปวิทยาลัย</div>
+              <div class="routine-item"><span class="time-badge">06:00 - 07:10</span> 🍳 กินข้าว ขี่รถไปวิทยาลัย</div>
+              <div class="routine-item"><span class="time-badge">07:40 - 16:00</span> 📚 ถึงวิทยาลัย เรียนหนังสือถึง 4 โมงเย็น</div>
+              <div class="routine-item"><span class="time-badge">17:30 - 21:30</span> 🍲 ทำอะไรเรื่อยเปื่อย กินข้าว อาบน้ำ เข้านอน</div>
+            </td>
+          </tr>
+
+          <!-- ศุกร์ -->
+          <tr>
+            <td class="day-cell">ศุกร์ 🔵</td>
+            <td>
+              <div class="routine-item"><span class="time-badge">05:30 - 06:00</span> 🧼 ตื่นมาล้างหน้า แปรงฟัน อาบน้ำ เตรียมไปวิทยาลัย</div>
+              <div class="routine-item"><span class="time-badge">06:00 - 07:10</span> 🍳 กินข้าว ขี่รถไปวิทยาลัย</div>
+              <div class="routine-item"><span class="time-badge">07:40 - 16:00</span> 📚 ถึงวิทยาลัย เรียนหนังสือถึง 4 โมงเย็น</div>
+              <div class="routine-item"><span class="time-badge">17:30 - 00:30</span> 🎧 เล่นเกม กินข้าว อาบน้ำ เล่นเกมต่อนอนดึกนิดหน่อย</div>
+            </td>
+          </tr>
+
+          <!-- เสาร์ -->
+          <tr>
+            <td class="day-cell">เสาร์ 🟣</td>
+            <td>
+              <div class="routine-item"><span class="time-badge">10:30 - 12:00</span> 🛌 ตื่นสาย อาบน้ำ กินข้าว</div>
+              <div class="routine-item"><span class="time-badge">12:00 - 16:00</span> 🎮 เล่นเกม นอนต่อ</div>
+              <div class="routine-item"><span class="time-badge">16:00 - 17:00</span> 🍜 เล่นเกม กินข้าว</div>
+              <div class="routine-item"><span class="time-badge">17:30 - 06:00</span> 🕹️ เล่นเกม กินข้าว ยาวไปนอนเช้าอีกวัน</div>
+            </td>
+          </tr>
+
+          <!-- อาทิตย์ -->
+          <tr>
+            <td class="day-cell">อาทิตย์ 🔴</td>
+            <td>
+              <div class="routine-item"><span class="time-badge">10:30 - 12:00</span> 🛌 ตื่นสาย อาบน้ำ กินข้าว</div>
+              <div class="routine-item"><span class="time-badge">12:00 - 16:00</span> 🎮 เล่นเกม นอนต่อ</div>
+              <div class="routine-item"><span class="time-badge">16:00 - 17:00</span> 🍜 เล่นเกม กินข้าว</div>
+              <div class="routine-item"><span class="time-badge">17:30 - 22:00</span> 💤 เล่นเกม กินข้าว นอนเร็วหน่อยเตรียมตัวไปเรียนวันจันทร์</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
 </body>
 </html>
