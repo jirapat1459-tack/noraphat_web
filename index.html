@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>แนะนำตัวเอง - นรภัทร มะยุลา</title>
+  
+  <style>
+    /* ตั้งค่าฟอนต์และการจัดหน้าทั่วไป */
+    body {
+      background-color: #fce4ec; /* สีชมพูพาสเทล */
+      font-family: 'Sarabun', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* ปุ่ม นำทางด้านบน */
+    .nav-buttons {
+      margin-bottom: 20px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      background-color: #ff80ab;
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 15px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #ff4081;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+    }
+
+    /* การ์ดคอนเทนต์หลัก */
+    .card {
+      background-color: white;
+      width: 100%;
+      max-width: 620px;
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      border: 1px solid #f8bbd0;
+      box-sizing: border-box;
+    }
+
+    h1.main-title {
+      color: #d81b60;
+      font-size: 26px;
+      margin-top: 0;
+      margin-bottom: 20px;
+      border-bottom: 3px dotted #f48fb1;
+      padding-bottom: 10px;
+    }
+
+    /* กล่องข้อมูลวิดเจ็ต (เวลา + ยอดวิว + อากาศ) */
+    .widgets-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+      align-items: center;
+    }
+
+    .widget-box {
+      background-color: #ffe4e8;
+      color: #c2185b;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 8px 18px;
+      border-radius: 15px;
+      display: inline-block;
+      box-shadow: inset 0 0 5px rgba(216, 27, 96, 0.1);
+      border: 1px solid #f8bbd0;
+      width: 85%;
+      box-sizing: border-box;
+    }
+
+    .widget-box span {
+      color: #d81b60;
+      font-size: 15px;
+    }
+
+    h2 {
+      color: #c2185b;
+      font-size: 20px;
+      margin-top: 25px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    p {
+      line-height: 1.6;
+      color: #555;
+      font-size: 15px;
+    }
+
+    .info-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .info-list li {
+      margin: 8px 0;
+      font-weight: 500;
+      background-color: #fff0f5;
+      padding: 10px 15px;
+      border-radius: 10px;
+      display: inline-block;
+      width: 80%;
+    }
+
+    /* ลิงก์ช่องทางการติดต่อ */
+    .contact-link {
+      display: inline-block;
+      background-color: #1877f2; /* สี Facebook */
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: bold;
+      margin-top: 5px;
+      box-shadow: 0 4px 10px rgba(24, 119, 242, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    .contact-link:hover {
+      opacity: 0.95;
+      transform: translateY(-2px);
+    }
+
+    /* ===================================== */
+    /*      ส่วนจัดระเบียบมัลติมีเดีย       */
+    /* ===================================== */
+    .media-section {
+      margin-top: 35px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      align-items: center;
+    }
+
+    /* กล่องการ์ดย่อยสำหรับรูป/คลิป/เพลง */
+    .media-card {
+      background-color: #fff5f8;
+      width: 100%;
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      border: 2px dashed #f8bbd0;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .media-title {
+      font-weight: bold;
+      color: #ad1457;
+      margin-bottom: 12px;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    /* จัดการรูปภาพ */
+    .img-wrapper {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+      display: inline-block;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      max-height: 380px;
+      display: block;
+      border-radius: 14px;
+      transition: transform 0.4s ease;
+    }
+
+    .img-wrapper:hover img {
+      transform: scale(1.03);
+    }
+
+    /* จัดการวิดีโอ */
+    video {
+      width: 100%;
+      max-width: 380px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      outline: none;
+      background-color: #000;
+      display: block;
+    }
+
+    /* จัดการเครื่องเล่นเพลง */
+    audio {
+      width: 100%;
+      max-width: 480px;
+      border-radius: 30px;
+      outline: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ปุ่มกดไปหน้าอื่น -->
+  <div class="nav-buttons">
+    <button class="btn" onclick="document.location='page.html'">📄 ไปหน้า 2</button>
+    <button class="btn" onclick="document.location='page2.html'">📄 ไปหน้า 3</button>
+  </div>
+
+  <!-- กล่องเนื้อหาหลัก -->
+  <div class="card">
+    <h1 class="main-title">My Name is Norphat Mayula ✨</h1>
+
+    <!-- ส่วนแสดงข้อมูล Widget (เวลา, สภาพอากาศ, ยอดเข้าชม) -->
+    <div class="widgets-container">
+      <!-- แสดงเวลาปัจจุบัน -->
+      <div class="widget-box">
+        ⏰ เวลาปัจจุบัน: <span id="current-time">กำลังโหลด...</span>
+      </div>
+
+      <!-- แสดงสภาพอากาศ -->
+      <div class="widget-box">
+        🌤️ สภาพอากาศ (เชียงใหม่): <span id="weather-info">กำลังโหลดข้อมูล...</span>
+      </div>
+
+      <!-- แสดงยอดผู้เข้าชมเว็บ -->
+      <div class="widget-box">
+        👁️ ยอดผู้เข้าชมทั้งหมด: <span id="visitor-count">0</span> ครั้ง
+      </div>
+    </div>
+
+    <h2>👤 ข้อมูลส่วนตัว</h2>
+    <ul class="info-list">
+      <li>🎂 <strong>วันเกิด:</strong> 10/10/2552</li>
+      <li>🏫 <strong>การศึกษา:</strong> วิทยาลัยเทคนิคเชียงใหม่</li>
+    </ul>
+
+    <h2>⭐ สิ่งที่ชอบ</h2>
+    <p>ชอบนอน 😴</p>
+
+    <h2>📱 ช่องทางการติดต่อ</h2>
+    <a class="contact-link" href="https://www.facebook.com/share/1BAqjRg1js/" target="_blank">Facebook 📘</a>
+
+    <h2>📝 ประวัติผมคร่าวๆ</h2>
+    <p>
+      สวัสดีครับผมชื่อนาย นรภัทร มะยุลา (ชื่อเล่น แทคเตอร์) บ้านอยู่สันทราย ชอบขับรถ ชอบนอน ชอบกิน
+      ปัจจุบันอายุ 16 ปี (กำลังจะเข้า 17 ปี) กำลังศึกษาอยู่ที่วิทยาลัยเทคนิคเชียงใหม่ สาขาอิเล็กทรอนิกส์ครับ ⚡
+    </p>
+
+    <!-- ส่วนไฟล์มีเดีย -->
+    <div class="media-section">
+
+      <!-- กล่องรูปภาพ -->
+      <div class="media-card">
+        <div class="media-title">📸 รูปโปรไฟล์ของผม</div>
+        <div class="img-wrapper">
+          <img src="norphat.jpg" alt="รูปถ่าย นรภัทร">
+        </div>
+      </div>
+
+      <!-- กล่องวิดีโอ -->
+      <div class="media-card">
+        <div class="media-title">🎬 วิดีโอแนะนำตัว / กิจกรรม</div>
+        <video controls poster="norphat.jpg">
+          <source src="014.mp4" type="video/mp4">
+          <source src="014.ogg" type="video/ogg">
+          เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอ
+        </video>
+      </div>
+
+      <!-- กล่องเสียงเพลง -->
+      <div class="media-card">
+        <div class="media-title">🎵 เพลงโปรด: คิดถึงฉันไหมเวลาที่เธอ - TAXI</div>
+        <audio controls>
+          <source src="คดถงฉนไหมเวลาทเธอ - TAXI OFFICIAL MV.ogg" type="audio/ogg">
+          <source src="คดถงฉนไหมเวลาทเธอ - TAXI OFFICIAL MV.mp3" type="audio/mpeg">
+          เบราว์เซอร์ของคุณไม่รองรับการเล่นเสียง
+        </audio>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- JavaScript สำหรับส่วนเสริมต่างๆ -->
+  <script>
+    // 1. ระบบนับยอดผู้เข้าชม (localStorage)
+    function updateVisitorCount() {
+      let views = localStorage.getItem('page_views');
+      if (views) {
+        views = parseInt(views) + 1;
+      } else {
+        views = 1;
+      }
+      localStorage.setItem('page_views', views);
+      document.getElementById('visitor-count').innerText = views.toLocaleString();
+    }
+
+    // 2. ระบบแสดงเวลาปัจจุบันแบบเรียลไทม์
+    function updateClock() {
+      const now = new Date();
+      const options = {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+      };
+      const timeString = now.toLocaleTimeString('th-TH', options) + ' น.';
+      document.getElementById('current-time').innerText = timeString;
+    }
+
+    // 3. ดึงข้อมูลสภาพอากาศเชียงใหม่จาก Open-Meteo API
+    async function fetchWeather() {
+      // พิกัดเชียงใหม่: Lat 18.7904, Long 98.9847
+      const url = 'https://api.open-meteo.com/v1/forecast?latitude=18.7904&longitude=98.9847&current=temperature_2m,relative_humidity_2m&timezone=Asia%2FBangkok';
+      
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        
+        const temp = data.current.temperature_2m;
+        const humidity = data.current.relative_humidity_2m;
+        
+        document.getElementById('weather-info').innerText = `${temp} °C (ความชื้น ${humidity}%)`;
+      } catch (error) {
+        document.getElementById('weather-info').innerText = 'ไม่สามารถดึงข้อมูลได้';
+        console.error('Weather Fetch Error:', error);
+      }
+    }
+
+    // เรียกให้ทำงานเมื่อโหลดหน้าเว็บ
+    updateVisitorCount();
+    updateClock();
+    setInterval(updateClock, 1000); // อัปเดตเวลาทุกๆ 1 วินาที
+    fetchWeather(); // ดึงข้อมูลสภาพอากาศ
+  </script>
+
+</body>
+</html>
